@@ -11,6 +11,7 @@ def test_fibonacci(number, fibonacci_number):
     assert fibonacci(number) == fibonacci_number
 
 
+@pytest.mark.fibonacci_generator
 def test_positive_fibonacci_generator():
     fg = fibonacci_generator()
     assert fg.next() == 0
@@ -22,6 +23,7 @@ def test_positive_fibonacci_generator():
     assert fg.next() == 8
 
 
+@pytest.mark.fibonacci_generator
 def test_negative_fibonacci_generator():
     fg = fibonacci_generator(negative=True)
     assert fg.next() == 0
@@ -65,11 +67,13 @@ def test_negative_fibonacci_list(number, fibonacci_list):
     assert get_fibonacci_list(number) == fibonacci_list
 
 
+@pytest.mark.fibonacci_generator
 @pytest.mark.parametrize("number,fibonacci_list", POSITIVE_FIBONACCI)
 def test_positive_fibonacci_xrange(number, fibonacci_list):
     assert get_fibonacci_xrange(number) == fibonacci_list
 
 
+@pytest.mark.fibonacci_generator
 @pytest.mark.parametrize("number,fibonacci_list", NEGATIVE_FIBONACCI)
 def test_negative_fibonacci_xrange(number, fibonacci_list):
     assert get_fibonacci_xrange(number) == fibonacci_list
