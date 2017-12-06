@@ -1,3 +1,6 @@
+import argparse
+
+
 def contain_10(*args):
     list_args = sorted(list(args), reverse=True)
     result = []
@@ -11,4 +14,12 @@ def contain_10(*args):
 
 
 if __name__ == '__main__':
-    print(contain_10(1, 2, 3, 4, 5, 5, 6))
+    parser = argparse.ArgumentParser(
+        description="This script prints pairs of numbers which sum is = 10 for a given collection of numbers")
+    group = parser.add_argument_group("Parameters")
+    group.add_argument(
+        "--numbers", "-n",
+        action='store', help="There are list numbers",
+        nargs='+', type=int, required=True)
+    args = parser.parse_args()
+    print(contain_10(*args.numbers))

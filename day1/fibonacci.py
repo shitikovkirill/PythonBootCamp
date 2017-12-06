@@ -1,3 +1,6 @@
+import argparse
+
+
 def fibonacci(number):
     """
     Gives fibonacci number by their position.
@@ -81,9 +84,8 @@ def get_fibonacci_xrange(number):
 
 
 if __name__ == '__main__':
-
-    print(get_fibonacci_list(13))
-    print(get_fibonacci_list(-13))
-
-    print(get_fibonacci_xrange(13))
-    print(get_fibonacci_xrange(-13))
+    parser = argparse.ArgumentParser(description="This script print fibonacci numbers")
+    group = parser.add_argument_group("Parameters")
+    group.add_argument("--number", "-n", action='store', help="A number to print", type=int, required=True)
+    args = parser.parse_args()
+    print(get_fibonacci_xrange(args.number))
