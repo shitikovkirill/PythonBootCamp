@@ -34,7 +34,7 @@ def get_fibonacci_list(number):
     return result
 
 
-def fibonacci_generator(number):
+def fibonacci_generator(negative=False):
     """
     Get fibonacci generator
     :return:
@@ -45,7 +45,7 @@ def fibonacci_generator(number):
     yield current_value
     while True:
         tmp_current_value = int(current_value)
-        if number >= 0:
+        if not negative:
             current_value = current_value + previous_value
         else:
             current_value = previous_value - current_value
@@ -61,7 +61,11 @@ def get_fibonacci_xrange(number):
     """
     counter = int(number)
     result = []
-    fg = fibonacci_generator(number)
+    if number >= 0:
+        fg = fibonacci_generator()
+    else:
+        fg = fibonacci_generator(True)
+
     result.append(fg.next())
 
     while counter:
