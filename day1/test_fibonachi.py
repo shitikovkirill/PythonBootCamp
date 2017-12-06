@@ -1,0 +1,41 @@
+from fibonacci import get_fibonacci_list, get_fibonacci_xrange
+
+
+def test_positive_fibonacci_list():
+    assert get_fibonacci_list(0) == [0]
+    assert get_fibonacci_list(1) == [0, 1]
+    assert get_fibonacci_list(2) == [0, 1, 1]
+    assert get_fibonacci_list(3) == [0, 1, 1, 2]
+    assert get_fibonacci_list(4) == [0, 1, 1, 2, 3]
+    assert get_fibonacci_list(5) == [0, 1, 1, 2, 3, 5]
+    assert get_fibonacci_list(6) == [0, 1, 1, 2, 3, 5, 8]
+
+
+def test_negative_fibonacci_list():
+    assert get_fibonacci_list(0) == [0]
+    assert get_fibonacci_list(-1) == [1, 0]
+    assert get_fibonacci_list(-2) == [-1, 1, 0]
+    assert get_fibonacci_list(-3) == [2, -1, 1, 0]
+    assert get_fibonacci_list(-4) == [-3, 2, -1, 1, 0]
+    assert get_fibonacci_list(-5) == [5, -3, 2, -1, 1, 0]
+    assert get_fibonacci_list(-6) == [-8, 5, -3, 2, -1, 1, 0]
+
+
+def test_positive_fibonacci_xrange():
+    assert get_fibonacci_xrange(0) == [0]
+    assert get_fibonacci_xrange(1) == [0, 1]
+    assert get_fibonacci_xrange(2) == [0, 1, 1]
+    assert get_fibonacci_xrange(3) == [0, 1, 1, 2]
+    assert get_fibonacci_xrange(4) == [0, 1, 1, 2, 3]
+    assert get_fibonacci_xrange(5) == [0, 1, 1, 2, 3, 5]
+    assert get_fibonacci_xrange(6) == [0, 1, 1, 2, 3, 5, 8]
+
+
+def test_negative_fibonacci_xrange():
+    assert get_fibonacci_xrange(0) == [0]
+    assert get_fibonacci_xrange(-1) == [1, 0]
+    assert get_fibonacci_xrange(-2) == [-1, 1, 0]
+    assert get_fibonacci_xrange(-3) == [2, -1, 1, 0]
+    assert get_fibonacci_xrange(-4) == [-3, 2, -1, 1, 0]
+    assert get_fibonacci_xrange(-5) == [5, -3, 2, -1, 1, 0]
+    assert get_fibonacci_xrange(-6) == [-8, 5, -3, 2, -1, 1, 0]
