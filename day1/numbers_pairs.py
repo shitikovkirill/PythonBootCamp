@@ -2,6 +2,11 @@ import argparse
 
 
 def contain_10(*args):
+    """
+    This script prints pairs of numbers which sum is = 10 for a given collection of numbers
+    :param args:
+    :return:
+    """
     list_args = sorted(list(args), reverse=True)
     result = []
     while list_args:

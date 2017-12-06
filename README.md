@@ -82,3 +82,13 @@ pytest -v -m fibonacci_generator
 
 [See pull request](https://github.com/shitikovkirill/pbc-PythonBootCamp/pull/14)
 
+#### Task 4 Configure markers
+Run CLI script
+```
+cd project
+workon PythonBootCamp
+
+python day1/numbers_pairs.py -n 3 4 5 6 1 3 9 4 7 3
+
+python day1/fibonacci.py -n 7
+```
