@@ -7,7 +7,8 @@ def contain_10(*args):
     :param args:
     :return:
     """
-    list_args = sorted(list(args), reverse=True)
+    args = [number for number in args if number < 10]
+    list_args = sorted(args, reverse=True)
     result = []
     while list_args:
         first_number = list_args.pop()

@@ -22,19 +22,19 @@ ssh vagrant@192.168.33.10 # password: vagrant
 
 Ran
 ```
-python project/day1/fibonacci.py
+python project/pbc_app/fibonacci.py
 ```
 
-[Link to fibonacci.py](https://github.com/shitikovkirill/pbc-PythonBootCamp/blob/master/day1/fibonacci.py)
+[Link to fibonacci.py](https://github.com/shitikovkirill/pbc-PythonBootCamp/blob/master/pbc_app/fibonacci.py)
 
 #### Task 3 - Numbers pairs
 
 Ran
 ```
-python project/day1/numbers_pairs.py
+python project/pbc_app/numbers_pairs.py
 ```
 
-[Link to numbers_pairs.py](https://github.com/shitikovkirill/pbc-PythonBootCamp/blob/master/day1/numbers_pairs.py)
+[Link to numbers_pairs.py](https://github.com/shitikovkirill/pbc-PythonBootCamp/blob/master/pbc_app/numbers_pairs.py)
 
 ## Dey 2: 
 
@@ -56,9 +56,9 @@ pytest
 ```
 List of tests:
 
-[test_fibonachi.py](https://github.com/shitikovkirill/pbc-PythonBootCamp/blob/master/day1/test_fibonacci.py)
+[test_fibonachi.py](https://github.com/shitikovkirill/pbc-PythonBootCamp/blob/master/tests/test_fibonacci.py)
 
-[test_numbers_pairs.py](https://github.com/shitikovkirill/pbc-PythonBootCamp/blob/master/day1/test_numbers_pairs.py)
+[test_numbers_pairs.py](https://github.com/shitikovkirill/pbc-PythonBootCamp/blob/master/tests/test_numbers_pairs.py)
 
 #### Task 3 Install Java on VM
 
@@ -88,7 +88,7 @@ Run CLI script
 cd project
 workon PythonBootCamp
 
-python day1/numbers_pairs.py -n 3 4 5 6 1 3 9 4 7 3
+python pbc_app/numbers_pairs.py -n 3 4 5 6 1 3 9 4 7 3
 
-python day1/fibonacci.py -n 7
+python pbc_app/fibonacci.py -n 7
 ```

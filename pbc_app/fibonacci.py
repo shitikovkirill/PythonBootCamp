@@ -1,42 +1,6 @@
 import argparse
 
 
-def fibonacci(number):
-    """
-    Gives fibonacci number by their position.
-    This function use recursive method for getting fibonacci number.
-    :param number:
-    :return:
-    """
-    if number == 0:
-        return 0
-    elif number == 1 or number == -1:
-        return 1
-    elif number < 0:
-        result = fibonacci(number + 2) - fibonacci(number + 1)
-    else:
-        result = fibonacci(number - 1) + fibonacci(number - 2)
-    return result
-
-
-def get_fibonacci_list(number):
-    """
-    Get list of fibonacci numbers
-    This is slow method to get fibonacci list
-    :param number:
-    :return:
-    """
-
-    result = []
-    if number >= 0:
-        for i in range(number+1):
-            result.append(fibonacci(i))
-    else:
-        for i in reversed(range((number-1)*-1)):
-            result.append(fibonacci(i*-1))
-    return result
-
-
 def fibonacci_generator(negative=False):
     """
     Get fibonacci generator
@@ -56,7 +20,7 @@ def fibonacci_generator(negative=False):
         yield current_value
 
 
-def get_fibonacci_xrange(number):
+def fibonacci_xrange(number):
     """
     Get fibonacci list using generators
     :param number:
@@ -88,4 +52,4 @@ if __name__ == '__main__':
     group = parser.add_argument_group("Parameters")
     group.add_argument("--number", "-n", action='store', help="A number to print", type=int, required=True)
     args = parser.parse_args()
-    print(get_fibonacci_xrange(args.number))
+    print(fibonacci_xrange(args.number))
