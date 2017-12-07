@@ -64,7 +64,29 @@ List of tests:
 
 [java.sh](https://github.com/shitikovkirill/pbc-PythonBootCamp/blob/master/bootstrap/java.sh)
 
-## Dey 3: 
+## Dey 3:
+#### Task 1 Structurize project
+
+```
+.
+├── bootstrap
+│   ├── common.sh
+│   ├── java.sh
+│   ├── python.sh
+│   ├── run.sh
+│   └── virtualenvwrapper.sh
+├── pbc_app
+│   ├── fibonacci.py
+│   ├── __init__.py
+│   ├── numbers_pairs.py
+├── README.md
+├── requirements.txt
+├── tests
+│   ├── __init__.py
+│   ├── test_fibonacci.py
+│   └── test_numbers_pairs.py
+└── Vagrantfile
+```
 
 #### Task 2 Use 'parametrize'
 
