@@ -1,4 +1,5 @@
 import argparse
+from log import arguments_log
 
 
 def fibonacci_generator(negative=False):
@@ -20,6 +21,7 @@ def fibonacci_generator(negative=False):
         yield current_value
 
 
+@arguments_log
 def fibonacci_xrange(number):
     """
     Get fibonacci list using generators
