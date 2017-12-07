@@ -8,6 +8,7 @@ CONTAINS = [
 ]
 
 
+@pytest.mark.contain_10
 @pytest.mark.parametrize("number_list,count,pairs", CONTAINS)
 def test_contain_10(number_list, count, pairs):
     result = contain_10(*number_list)
