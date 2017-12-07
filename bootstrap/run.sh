@@ -25,6 +25,3 @@ java -version
 echo "Python version"
 python -V
 
-cd /vagrant
-
-pytest
