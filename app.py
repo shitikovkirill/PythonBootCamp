@@ -1,5 +1,5 @@
 import argparse
-from pbc_app.fibonacci import fibonacci_xrange
+from pbc_app.fibonacci import fibonacci_list
 from pbc_app.numbers_pairs import contain_10
 
 
@@ -23,6 +23,6 @@ if __name__ == '__main__':
         if len(args.numbers) > 1:
             print('For run fibonacci function you mast use only one number in argument --numbers')
         else:
-            print(fibonacci_xrange(args.numbers[0]))
+            print(fibonacci_list(args.numbers[0]))
     elif args.contain:
         print(contain_10(*args.numbers))

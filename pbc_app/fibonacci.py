@@ -22,7 +22,7 @@ def fibonacci_generator(negative=False):
 
 
 @arguments_log
-def fibonacci_xrange(number):
+def fibonacci_list(number):
     """
     Get fibonacci list using generators
     :param number:
@@ -54,4 +54,4 @@ if __name__ == '__main__':
     group = parser.add_argument_group("Parameters")
     group.add_argument("--number", "-n", action='store', help="A number to print", type=int, required=True)
     args = parser.parse_args()
-    print(fibonacci_xrange(args.number))
+    print(fibonacci_list(args.number))

@@ -1,4 +1,4 @@
-from pbc_app.fibonacci import fibonacci_xrange,  fibonacci_generator
+from pbc_app.fibonacci import fibonacci_list,  fibonacci_generator
 import pytest
 
 
@@ -50,14 +50,14 @@ NEGATIVE_FIBONACCI = [
 
 
 @pytest.mark.fibonacci
-@pytest.mark.fibonacci_xrange
-@pytest.mark.parametrize("number,fibonacci_list", POSITIVE_FIBONACCI)
-def test_positive_fibonacci_xrange(number, fibonacci_list):
-    assert fibonacci_xrange(number) == fibonacci_list
+@pytest.mark.fibonacci_list
+@pytest.mark.parametrize("number,fibonacci_list_value", POSITIVE_FIBONACCI)
+def test_positive_fibonacci_list(number, fibonacci_list_value):
+    assert fibonacci_list(number) == fibonacci_list_value
 
 
 @pytest.mark.fibonacci
-@pytest.mark.fibonacci_xrange
-@pytest.mark.parametrize("number,fibonacci_list", NEGATIVE_FIBONACCI)
-def test_negative_fibonacci_xrange(number, fibonacci_list):
-    assert fibonacci_xrange(number) == fibonacci_list
+@pytest.mark.fibonacci_list
+@pytest.mark.parametrize("number,fibonacci_list_value", NEGATIVE_FIBONACCI)
+def test_negative_fibonacci_list(number, fibonacci_list_value):
+    assert fibonacci_list(number) == fibonacci_list_value
