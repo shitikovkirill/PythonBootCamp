@@ -1,6 +1,8 @@
 import argparse
+from log import arguments_log
 
 
+@arguments_log
 def contain_10(*args):
     """
     This script prints pairs of numbers which sum is = 10 for a given collection of numbers
