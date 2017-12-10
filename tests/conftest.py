@@ -1,5 +1,7 @@
 import paramiko
 import pytest
+import time
+import os
 from pbc_app.fibonacci import fibonacci_generator
 
 
@@ -16,55 +18,64 @@ def paramiko_client():
     client.close()
 
 
-@pytest.yield_fixture(scope='session', autouse=True)
-def setup(paramiko_client):
-    """
-    Up remote Selenium server
-    :param paramiko_client:
-    :return:
-    """
-    def get_lines(lines):
-        return [line for line in lines.split('\n') if line]
+data = os.popen("echo $USER")
+user = data.read()
+if user.count('vagrant'):
+    print 'vagrant'
+else:
 
-    stdin, stdout, stderr = paramiko_client.exec_command("ls selenium-server-standalone-3.8.0.jar")
-    selenium_server_file = get_lines(stdout.read())
+    @pytest.yield_fixture(scope='session', autouse=True)
+    def setup(paramiko_client):
+        """
+        Up remote Selenium server
+        :param paramiko_client:
+        :return:
+        """
+        def get_lines(lines):
+            return [line for line in lines.split('\n') if line]
 
-    if not selenium_server_file:
-        print 'Loading selenium server file'
-        paramiko_client.exec_command("wget -O selenium-server-standalone-3.8.0.jar https://goo.gl/SVuU9X", timeout=10)
+        stdin, stdout, stderr = paramiko_client.exec_command("ls selenium-server-standalone-3.8.1.jar")
+        selenium_server_file = get_lines(stdout.read())
 
-    paramiko_client.exec_command('pkill java')
-    stdin, stdout, stderr = paramiko_client.exec_command('pgrep java')
-    pid_count = get_lines(stdout.read())
+        if not selenium_server_file:
+            print 'Loading selenium server file'
+            paramiko_client.exec_command("wget -O selenium-server-standalone-3.8.1.jar https://selenium-release.storage.googleapis.com/3.8/selenium-server-standalone-3.8.1.jar", timeout=100)
+            time.sleep(3)
 
-    try:
-        if len(pid_count) == 0:
-            paramiko_client.exec_command('java -jar selenium-server-standalone-3.8.0.jar -role hub >> log.txt 2>&1 &')
-        else:
-            raise Exception('You mast kill java process before running script. Restart the tests')
-
+        paramiko_client.exec_command('killall java')
         stdin, stdout, stderr = paramiko_client.exec_command('pgrep java')
         pid_count = get_lines(stdout.read())
 
-        if len(pid_count) == 1:
-            paramiko_client.exec_command('java -jar selenium-server-standalone-3.8.0.jar -role node  -hub http://localhost:4444/grid/register >> log.txt 2>&1 &')
-        elif len(pid_count) == 0:
-            raise Exception('Hub not running.')
+        try:
+            if len(pid_count) == 0:
+                paramiko_client.exec_command('java -jar selenium-server-standalone-3.8.1.jar -role hub >> log.txt 2>&1 &')
+                time.sleep(3)
+            else:
+                raise Exception('You mast kill java process before running script. Restart the tests')
 
-        stdin, stdout, stderr = paramiko_client.exec_command('pgrep java')
-        pid_count = get_lines(stdout.read())
+            stdin, stdout, stderr = paramiko_client.exec_command('pgrep java')
+            pid_count = get_lines(stdout.read())
 
-        if len(pid_count) == 2:
-            print 'All process running'
-        elif len(pid_count) == 1:
-            raise Exception('Node not running.')
-    finally:
-        paramiko_client.exec_command('pkill java')
+            if len(pid_count) == 1:
+                paramiko_client.exec_command('java -jar selenium-server-standalone-3.8.1.jar -role node  -hub http://localhost:4444/grid/register >> log.txt 2>&1 &')
+                time.sleep(3)
+            elif len(pid_count) == 0:
+                raise Exception('Hub not running.')
 
-    yield None
+            stdin, stdout, stderr = paramiko_client.exec_command('pgrep java')
+            pid_count = get_lines(stdout.read())
 
-    print 'Close Selenium server'
-    paramiko_client.exec_command('pkill java')
+            if len(pid_count) == 2:
+                print 'All process running'
+            elif len(pid_count) == 1:
+                raise Exception('Node not running.')
+        finally:
+            paramiko_client.exec_command('killall java')
+
+        yield None
+
+        print 'Close Selenium server'
+        paramiko_client.exec_command('killall java')
 
 
 @pytest.fixture(scope='module')

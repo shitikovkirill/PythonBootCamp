@@ -5,6 +5,8 @@ Vagrant.configure("2") do |config|
   config.vm.network "private_network", ip: "192.168.33.10"
 
   config.vm.provider "virtualbox" do |vb|
+        vb.memory = 2048
+        vb.cpus = 2
         vb.name = "shitikovkirill"
   end
 
@@ -17,6 +19,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "bootstrap/java.sh"
   config.vm.provision "shell", path: "bootstrap/python.sh"
   config.vm.provision "shell", privileged: false, path: "bootstrap/virtualenvwrapper.sh"
+  config.vm.provision "shell", privileged: false, path: "bootstrap/selenium.sh"
   config.vm.provision "shell",
         privileged: false,
         path: "bootstrap/run.sh",
