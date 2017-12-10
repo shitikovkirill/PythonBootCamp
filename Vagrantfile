@@ -4,6 +4,10 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 80, host: 8080
   config.vm.network "private_network", ip: "192.168.33.10"
 
+  config.vm.provider "virtualbox" do |vb|
+        vb.name = "github shitikovkirill"
+  end
+
   config.vm.provision "shell", privileged: false, inline: <<-SHELL
         echo -e "\e[34mSet PROJECT"
         echo "export PROJECT_DIR=/home/vagrant/project" >> ~/.profile
