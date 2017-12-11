@@ -1,4 +1,4 @@
-from pbc_app.numbers_pairs import contain_10
+from pbc.tools.numbers_pairs import contain_10
 import pytest
 
 CONTAINS = [

@@ -1,6 +1,6 @@
 import argparse
-from pbc_app.fibonacci import fibonacci_list
-from pbc_app.numbers_pairs import contain_10
+from pbc.tools.fibonacci import fibonacci_list
+from pbc.tools.numbers_pairs import contain_10
 
 
 if __name__ == '__main__':

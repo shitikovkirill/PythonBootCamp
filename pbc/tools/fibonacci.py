@@ -1,5 +1,5 @@
 import argparse
-from log import arguments_log
+from pbc.log import arguments_log
 
 
 def fibonacci_generator(negative=False):

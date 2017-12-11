@@ -2,7 +2,7 @@ import paramiko
 import pytest
 import time
 import os
-from pbc_app.fibonacci import fibonacci_generator
+from pbc.tools.fibonacci import fibonacci_generator
 
 
 @pytest.yield_fixture(scope='session', autouse=True)

@@ -1,4 +1,4 @@
-from pbc_app.fibonacci import fibonacci_list
+from pbc.tools.fibonacci import fibonacci_list
 import pytest
 
 POSITIVE_FIBONACCI_NUMBER = [
