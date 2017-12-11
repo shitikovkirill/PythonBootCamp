@@ -1,5 +1,5 @@
 import argparse
-from pbc.log import arguments_log
+from pbc.func_decorators import arguments_log
 
 
 @arguments_log
