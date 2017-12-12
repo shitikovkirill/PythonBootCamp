@@ -2,6 +2,8 @@
 cd
 echo "Install selenium"
 wget -O selenium-server-standalone-3.8.0.jar https://goo.gl/SVuU9X
+mkdir selenium
+cp selenium-server-standalone-3.8.0.jar ./selenium
 
 echo "Install firefox + geckodriver on VM"
 add-apt-repository ppa:mozillateam/firefox-next
