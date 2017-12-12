@@ -1,8 +1,8 @@
 import time
-from pbc.selenium.base_grid import BaseGrid
+from pbc.selenium.server import BaseServer
 
 
-class Grid(BaseGrid):
+class Grid(BaseServer):
     def __init__(self, ssh_client):
         self._client = ssh_client
 

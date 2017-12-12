@@ -1,7 +1,7 @@
-from pbc.selenium.base_grid import BaseGrid
+from pbc.selenium.server import BaseServer
 
 
-class StartGrid(BaseGrid):
+class StartGrid(BaseServer):
     def __init__(self, grid):
         self._g = grid
 

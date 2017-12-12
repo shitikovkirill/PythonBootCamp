@@ -1,17 +1,17 @@
 from abc import ABCMeta, abstractmethod
 
 
-class BaseGrid:
+class BaseServer:
     __metaclass__ = ABCMeta
 
     @abstractmethod
-    def start_hub(self):
+    def install(self):
         pass
 
     @abstractmethod
-    def download(self):
+    def start(self):
         pass
 
     @abstractmethod
-    def add_node(self):
+    def stop(self):
         pass

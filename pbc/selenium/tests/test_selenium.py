@@ -1,7 +1,7 @@
 import pytest
 import time
 
-from pbc.selenium.grid import Grid
+from pbc.selenium.components.grid import Grid
 from pbc.selenium.start_grid import StartGrid
 
 
