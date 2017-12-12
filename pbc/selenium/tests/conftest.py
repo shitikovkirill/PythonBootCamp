@@ -1,6 +1,5 @@
 import paramiko
 import pytest
-import os
 
 
 @pytest.fixture(scope='session', autouse=True)
