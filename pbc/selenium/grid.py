@@ -16,7 +16,7 @@ class Grid(BaseGrid):
         return stdout.channel.recv_exit_status()
 
     def is_download(self, file_name):
-        stdin, stdout, stderr = self._client.exec_command('ls selenium-server-standalone-3.8.0.jar')
+        stdin, stdout, stderr = self._client.exec_command('ls {}'.format(file_name))
         selenium_server_file = [line for line in stdout.read().split('\n') if line]
         if len(selenium_server_file) >= 1:
             return True
