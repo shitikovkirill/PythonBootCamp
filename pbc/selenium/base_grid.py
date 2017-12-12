@@ -9,7 +9,7 @@ class BaseGrid:
         pass
 
     @abstractmethod
-    def download(self):
+    def download(self, new_file_name, url):
         pass
 
     @abstractmethod

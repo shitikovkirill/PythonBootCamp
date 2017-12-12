@@ -26,16 +26,7 @@ def delete_jar_file(ssh_client):
 
 @pytest.fixture
 def kill_all_java_process(ssh_client):
+    print('Kill all java process')
     ssh_client.exec_command('killall -9 java')
     yield
     ssh_client.exec_command('killall -9 java')
-
-
-"""
-data = os.popen("echo $USER")
-user = data.read()
-if user.count('vagrant'):
-    'Install selenium from vagrant'
-else:
-    'Install selenium using ssh'
-"""
