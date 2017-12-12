@@ -10,26 +10,26 @@ def get_lines(lines):
 
 
 def test_grid_download(ssh_client, delete_jar_file):
-    stdin, stdout, stderr = ssh_client.exec_command('ls selenium-server-standalone-3.8.1.jar')
+    stdin, stdout, stderr = ssh_client.exec_command('ls selenium-server-standalone-3.8.0.jar')
     selenium_server_file = get_lines(stdout.read())
     assert len(selenium_server_file) == 0
 
     grid = Grid(ssh_client)
     grid.download()
 
-    stdin, stdout, stderr = ssh_client.exec_command('ls selenium-server-standalone-3.8.1.jar')
+    stdin, stdout, stderr = ssh_client.exec_command('ls selenium-server-standalone-3.8.0.jar')
     selenium_server_file = get_lines(stdout.read())
     assert len(selenium_server_file) == 1
 
 
 def test_grid_is_download(ssh_client, delete_jar_file):
-    stdin, stdout, stderr = ssh_client.exec_command('ls selenium-server-standalone-3.8.1.jar')
+    stdin, stdout, stderr = ssh_client.exec_command('ls selenium-server-standalone-3.8.0.jar')
     selenium_server_file = get_lines(stdout.read())
     assert len(selenium_server_file) == 0
 
-    ssh_client.exec_command('touch selenium-server-standalone-3.8.1.jar')
+    ssh_client.exec_command('touch selenium-server-standalone-3.8.0.jar')
 
-    stdin, stdout, stderr = ssh_client.exec_command('ls selenium-server-standalone-3.8.1.jar')
+    stdin, stdout, stderr = ssh_client.exec_command('ls selenium-server-standalone-3.8.0.jar')
     selenium_server_file = get_lines(stdout.read())
     assert len(selenium_server_file) == 1
 

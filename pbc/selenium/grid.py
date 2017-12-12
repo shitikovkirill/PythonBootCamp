@@ -8,7 +8,7 @@ class Grid(BaseGrid):
 
     def download(self):
         print 'Download'
-        stdin, stdout, stderr = self._client.exec_command("wget -O selenium-server-standalone-3.8.1.jar https://selenium-release.storage.googleapis.com/3.8/selenium-server-standalone-3.8.1.jar", timeout=300)
+        stdin, stdout, stderr = self._client.exec_command("wget -O selenium-server-standalone-3.8.0.jar https://goo.gl/SVuU9X", timeout=300)
 
         while not stdout.channel.exit_status_ready():
             print('.')
@@ -16,7 +16,7 @@ class Grid(BaseGrid):
         return stdout.channel.recv_exit_status()
 
     def is_download(self):
-        stdin, stdout, stderr = self._client.exec_command('ls selenium-server-standalone-3.8.1.jar')
+        stdin, stdout, stderr = self._client.exec_command('ls selenium-server-standalone-3.8.0.jar')
         selenium_server_file = [line for line in stdout.read().split('\n') if line]
         if len(selenium_server_file) >= 1:
             return True
@@ -25,9 +25,9 @@ class Grid(BaseGrid):
 
     def start_hub(self):
         print 'Start hub'
-        self._client.exec_command('java -jar selenium-server-standalone-3.8.1.jar -role hub >> log.txt 2>&1 &')
+        self._client.exec_command('java -jar selenium-server-standalone-3.8.0.jar -role hub >> log.txt 2>&1 &')
 
     def add_node(self):
         print 'Add node'
         self._client.exec_command(
-            'java -jar selenium-server-standalone-3.8.1.jar -role node  -hub http://localhost:4444/grid/register >> log.txt 2>&1 &')
+            'java -jar selenium-server-standalone-3.8.0.jar -role node  -hub http://localhost:4444/grid/register >> log.txt 2>&1 &')
