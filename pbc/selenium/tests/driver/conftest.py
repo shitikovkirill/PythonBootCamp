@@ -11,7 +11,10 @@ def ssh_client():
 
     yield client
 
-    client.exec_command('killall -9 java')
-    client.exec_command('rm selenium-server-standalone-3.8.0.jar')
+    ssh_client.exec_command('killall -9 java')
+    ssh_client.exec_command('rm selenium-server-standalone-3.8.0.jar')
     print 'Close paramiko client'
     client.close()
+
+
+
