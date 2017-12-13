@@ -1,6 +1,8 @@
 import paramiko
 import pytest
 
+from pbc.selenium.tests.assert_checker import AssertChecker
+
 
 @pytest.fixture(scope='session', autouse=True)
 def ssh_client():
@@ -15,3 +17,8 @@ def ssh_client():
     client.exec_command('rm selenium-server-standalone-3.8.0.jar')
     print 'Close paramiko client'
     client.close()
+
+
+@pytest.fixture(scope='session', autouse=True)
+def assert_checker(ssh_client):
+    return AssertChecker(ssh_client)
