@@ -6,3 +6,5 @@ pytest==3.3.1
 six==1.11.0
 paramiko
 selenium
+requests
+typing

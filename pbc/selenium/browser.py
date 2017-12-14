@@ -1,3 +1,4 @@
+import typing
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from pbc.selenium.pages import Page
@@ -16,5 +17,6 @@ class FirefoxBrowser(BaseDriver):
         )
 
     def get_page(self, url):
+        # type: (str) -> Page
         self._driver.get(url)
         return Page(self._driver)
