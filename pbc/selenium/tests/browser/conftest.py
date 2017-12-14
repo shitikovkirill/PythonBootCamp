@@ -9,10 +9,3 @@ def up_grid(ssh_client):
     grid.download('sg-node.json', 'https://gist.github.com/extsoft/aed4cb6e0b1ae3cd1d38cafffdd79310/raw/')
     grid.start_hub()
     grid.add_node()
-
-    yield grid
-
-    ssh_client.exec_command('killall -9 java')
-
-
-
