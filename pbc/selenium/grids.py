@@ -30,7 +30,7 @@ class Grid(BaseGrid):
     def add_node(self):
         print 'Add node'
         self._client.exec_command(
-            'java -jar selenium-server-standalone-3.8.0.jar -role node  -hub http://localhost:4444/grid/register >> log.txt 2>&1 &')
+            'java -jar selenium-server-standalone-3.8.0.jar -role node  -nodeConfig sg-node.json >> log.txt 2>&1 &')
 
 
 class StartGrid(BaseGrid):

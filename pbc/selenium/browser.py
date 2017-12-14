@@ -1,7 +1,7 @@
 from selenium import webdriver
-from pbc.selenium.base_driver import BaseDriver
 from selenium.webdriver.firefox.options import Options
 from pbc.selenium.pages import Page
+from pbc.selenium.base_driver import BaseDriver
 
 
 class FirefoxBrowser(BaseDriver):

@@ -28,5 +28,5 @@ python -V
 cd /vagrant
 
 find -name '*.pyc' -delete
-pytest
+#pytest
 find -name '*.pyc' -delete
