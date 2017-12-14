@@ -45,7 +45,7 @@ def test_check_max_session_using_requests(assert_checker):
 
 
 @pytest.mark.browser
-def test_title(assert_checker):
+def test_python_org(assert_checker):
     assert_checker.count_of_java_process(2)
 
     browser = FirefoxBrowser()
