@@ -17,11 +17,13 @@ class Page(BasePage):
     def screenshot(self, name):
         self._browser.save_screenshot(name)
 
-    def enter_data(self, input_element_name, value):
-        elem = self._browser.find_element_by_name(input_element_name)
+    def enter_data(self, input_el_name, value, button):
+        elem = self._browser.find_element_by_name(input_el_name)
         elem.clear()
         elem.send_keys(value)
         elem.send_keys(Keys.RETURN)
+        button = self._browser.find_element_by_xpath(button)
+        button.click()
 
     def close(self):
         self._browser.close()

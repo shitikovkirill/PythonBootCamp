@@ -14,7 +14,8 @@ def test_title(assert_checker):
         page = browser.get_page('http://www.python.org')
         page.screenshot('python.png')
         assert "Python" in page.get_title()
-        page.enter_data("q", "pycon")
+        page.enter_data("q", "pycon", "//button[@id='submit']")
+        time.sleep(5)
         page.screenshot('pycon.png')
 
         new_page = browser.get_page("http://www.python.org")
