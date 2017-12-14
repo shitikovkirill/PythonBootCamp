@@ -1,4 +1,5 @@
 import pytest
+import time
 from pbc.selenium.browser import FirefoxBrowser
 
 
@@ -6,5 +7,21 @@ from pbc.selenium.browser import FirefoxBrowser
 def test_title(assert_checker):
     assert_checker.count_of_java_process(2)
 
+    time.sleep(10)
+
     browser = FirefoxBrowser()
-    browser.get_page('http://192.168.33.10:4444/grid/console')
+    try:
+        page = browser.get_page('http://www.python.org')
+        page.screenshot('python.png')
+        assert "Python" in page.get_title()
+        page.enter_data("q", "pycon")
+        page.screenshot('pycon.png')
+
+        new_page = browser.get_page("http://www.python.org")
+        assert "No results found." not in new_page.source()
+    except Exception as a:
+        print a.message
+        raise a
+    finally:
+        print 'close'
+        page.close()

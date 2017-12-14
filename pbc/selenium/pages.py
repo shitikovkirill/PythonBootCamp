@@ -1,6 +1,5 @@
-import time
-
 from pbc.selenium.base_page import BasePage
+from selenium.webdriver.common.keys import Keys
 import re
 
 
@@ -11,6 +10,21 @@ class Page(BasePage):
 
     def get_title(self):
         return self._browser.title
+
+    def source(self):
+        return self._browser.page_source
+
+    def screenshot(self, name):
+        self._browser.save_screenshot(name)
+
+    def enter_data(self, input_element_name, value):
+        elem = self._browser.find_element_by_name(input_element_name)
+        elem.clear()
+        elem.send_keys(value)
+        elem.send_keys(Keys.RETURN)
+
+    def close(self):
+        self._browser.close()
 
 
 class ConsolePage(Page):

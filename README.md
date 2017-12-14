@@ -115,5 +115,10 @@ python pbc_app/numbers_pairs.py -n 3 4 5 6 1 3 9 4 7 3
 python pbc_app/fibonacci.py -n 7
 ```
 
-#### Task 5 Decorator
+## Dey 7:
+#### Task 3 Test a grid config
 
+[See pull request](https://github.com/shitikovkirill/pbc-PythonBootCamp/pull/30)
+
+## Dey 8:
+#### Task 1 Test a grid config
