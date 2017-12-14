@@ -121,4 +121,8 @@ python pbc_app/fibonacci.py -n 7
 [See pull request](https://github.com/shitikovkirill/pbc-PythonBootCamp/pull/30)
 
 ## Dey 8:
-#### Task 1 Test a grid config
+#### Task 1 Run a test on the grid
+[See pull request](https://github.com/shitikovkirill/pbc-PythonBootCamp/pull/31)
+
+#### Task 2 Use requests
+

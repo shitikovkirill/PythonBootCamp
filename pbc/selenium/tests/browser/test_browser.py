@@ -7,8 +7,6 @@ from pbc.selenium.browser import FirefoxBrowser
 def test_title(assert_checker):
     assert_checker.count_of_java_process(2)
 
-    time.sleep(10)
-
     browser = FirefoxBrowser()
     try:
         page = browser.get_page('http://www.python.org')

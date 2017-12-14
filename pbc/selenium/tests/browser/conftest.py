@@ -1,4 +1,6 @@
 import pytest
+import time
+
 from pbc.selenium.grids import StartGrid, Grid
 
 
@@ -9,3 +11,4 @@ def up_grid(ssh_client):
     grid.download('sg-node.json', 'https://gist.github.com/extsoft/aed4cb6e0b1ae3cd1d38cafffdd79310/raw/')
     grid.start_hub()
     grid.add_node()
+    time.sleep(10)
