@@ -124,5 +124,7 @@ python pbc_app/fibonacci.py -n 7
 #### Task 1 Run a test on the grid
 [See pull request](https://github.com/shitikovkirill/pbc-PythonBootCamp/pull/31)
 
-#### Task 2 Use requests
+#### Task 2 Use requests AND Task 3 Use typing in the code
+[See commit](https://github.com/shitikovkirill/pbc-PythonBootCamp/commit/c1e29d20f87f8da543accc448882651903f0e746)
+
 
