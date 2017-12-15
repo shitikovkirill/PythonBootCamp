@@ -65,3 +65,4 @@ def test_python_org(assert_checker):
     finally:
         print 'close'
         page.close()
+        new_page.close()
