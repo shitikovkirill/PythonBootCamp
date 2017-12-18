@@ -2,7 +2,7 @@
 echo "Update system"
 apt-get -y -q update
 apt-get -y -q upgrade
-file = "/home/vagrant/project"
+file="/home/vagrant/project"
 if [ -f "$file" ]
     then
 	    echo "File $file exist."
