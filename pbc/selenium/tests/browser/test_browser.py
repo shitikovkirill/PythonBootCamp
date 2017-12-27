@@ -64,5 +64,4 @@ def test_python_org(assert_checker):
         raise a
     finally:
         print 'close'
-        page.close()
-        new_page.close()
+        browser.close_pages()

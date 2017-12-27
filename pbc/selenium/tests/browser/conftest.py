@@ -1,6 +1,6 @@
 import pytest
 import time
-
+from selenium import webdriver
 from pbc.selenium.grids import StartGrid, Grid
 
 
@@ -13,12 +13,9 @@ def up_grid(ssh_client):
     grid.add_node()
     time.sleep(10)
 
-import pytest
-from selenium import webdriver
-
 
 @pytest.fixture(scope="function")
 def web_driver():
     driver = webdriver.Firefox()
     yield driver
-    driver.close()
+    driver.quit()

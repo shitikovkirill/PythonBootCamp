@@ -8,6 +8,7 @@ from pbc.selenium.base_driver import BaseDriver
 class FirefoxBrowser(BaseDriver):
 
     def __init__(self):
+        super(FirefoxBrowser, self).__init__()
         options = Options()
         options.add_argument('--headless')
         self._driver = webdriver.Remote(
@@ -19,4 +20,10 @@ class FirefoxBrowser(BaseDriver):
     def get_page(self, url):
         # type: (str) -> Page
         self._driver.get(url)
-        return Page(self._driver)
+        page = Page(self._driver)
+        self.pages.append(page)
+        return page
+
+    def close_pages(self):
+        # type: ()-> None
+        self._driver.close()
